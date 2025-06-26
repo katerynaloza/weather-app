@@ -7,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     min-height: 110vh;
-    background: linear-gradient(to bottom, #4dd0e1 0%, #80deea 30%, #b2ebf2 80%, #e0f7fa  );
+    background: linear-gradient(to bottom, #4dd0e1 0%, #80deea 30%, #b2ebf2 80%, #e0f7fa);
 }
 
 header,
@@ -18,7 +18,6 @@ main {
 
 header {
     background-color: #1cc0d6;
-
 }
 
 .header {
@@ -43,7 +42,6 @@ h1 {
     font-size: 22px;
     margin: 0;
     transform: translateY(2px);
-
 }
 
 .main-weather {
@@ -62,7 +60,7 @@ h1 {
 }
 
 .temperature-value {
-    font-size: 3rem; 
+    font-size: 3rem;
     font-weight: bold;
     margin: 0;
     color: #01579b;
@@ -79,12 +77,9 @@ h1 {
     height: 90px;
 }
 
-
 .search-wrapper {
     margin: 0.5rem 0;
-
 }
-
 
 .detail-row {
     display: flex;
@@ -104,9 +99,7 @@ h1 {
 .detail-text {
     font-size: 1rem;
     color: #333;
-
 }
-
 
 #search-form {
     display: flex;
@@ -124,7 +117,6 @@ h1 {
 }
 
 #search-form button {
-    
     width: 40px;
     height: 40px;
     border-radius: 8px;
@@ -156,8 +148,6 @@ h1 {
     overflow-x: hidden;
     gap: 1rem;
 }
-
-
 
 .hourly-items {
     display: flex;
@@ -207,7 +197,6 @@ h1 {
     color: #004d60;
 }
 
-
 footer {
     background-color: #e0f7fa;
     padding: 7px 0;
@@ -217,13 +206,13 @@ footer {
     z-index: 100;
 }
 
-.bottom_nav {
+.bottom-nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.bottom_nav a {
+.bottom-nav a {
     text-decoration: none;
     color: #004d60;
     display: flex;
@@ -238,33 +227,86 @@ footer {
     margin-bottom: 1px;
 }
 
-
-
-
-
 .current_position_icon {
-    
     width: 24px;
     height: 24px;
 }
 
-
-
-@media (max-width: 480px) {
-    .bottom_nav span {
-        font-size: 0.75rem;
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 18px;
     }
 
-    h1 {
-        font-size: 1rem;
+    main {
+        max-width: 1000px;
+        margin: 0 auto;
     }
 
-    .current_position_icon {
-    width: 20px;
-    height: 20px;
-}
+    header {
+        width: 100%;
+        padding: 2rem;
+    }
 
+    .header {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        
+    }
 
+    #search-form button {
+        width: 70px;
+    }
 
+    .main-weather {   
+        display: flex;
+        justify-content: left;
+        gap: 4rem;    
+    }
 
+    .weather-description {
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .big-weather-icon {
+        width: 130px;
+        height: 130px;
+    }
+
+    .temperature-value {
+        font-size: 5rem;
+        font-weight: 500;
+    }
+
+    .weather-text {
+        font-size: 3rem;
+    }
+
+    .details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hourly_items {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .daily-items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    footer {
+        position: fixed;
+        padding: 1rem 0;
+    }
+
+    .bottom-nav {
+        justify-content: space-around;
+        gap: 2rem;
+    }
 }

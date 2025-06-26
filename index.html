@@ -4,11 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather app</title>
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#0288d1">
         <link rel="stylesheet" href="style.css">
-        
-
-        
     </head>
+
     <body>
         <header>
             <div class="header">
@@ -32,7 +32,7 @@
 
             <section class="main-weather">
                 <div class="weather-text">
-                    <h2 class="temperature-value">24</h2>
+                    <h2 class="temperature-value">24°</h2>
                     <p class="weather-description">mostly sunny</p>
                 </div>
                 <img src="/img/sun_filled.svg" class="big-weather-icon" alt="sunny icon">
@@ -41,19 +41,19 @@
             <section class="details">
                 <div class="detail-row">
                     <img src="/img/temperature.svg" alt="thermometer" class="detail-icon">
-                    <span class="detail-text">Feels like: 26°</span>
+                    <span class="detail-text">Feels like: <span class="temperature"></span> </span>
                 </div>
                 <div class="detail-row">
                     <img src="/img/wind.svg" alt="wind" class="detail-icon">
-                    <span class="detail-text">Wind: 12 km/h</span>
+                    <span class="detail-text">Wind: <span class="wind"></span>km/h</span>
                 </div>
                 <div class="detail-row">
                     <img src="/img/humidity.svg" alt="humidity" class="detail-icon">
-                    <span class="detail-text">Humidity: 58%</span>
+                    <span class="detail-text">Humidity: <span class="humidity"></span>%</span>
                 </div>
                 <div class="detail-row">
                     <img src="/img/uv-index.svg" alt="uv index" class="detail-icon">
-                    <span class="detail-text">UV Index: 5 Moderate</span>
+                    <span class="detail-text">UV Index: <span class="uv-index"></span> </span>
                 </div>
             </section>
 
@@ -122,7 +122,7 @@
         </main>
 
         <footer>
-            <div class="bottom_nav">
+            <div class="bottom-nav">
                 <a href="#">
                     <img src="/img/home.svg" alt="home icon" class="nav-icon">
                     <span>Home</span>
@@ -142,6 +142,6 @@
             </div>
         </footer>
 
-        <script src="script.js" defer></script>
+        <script src="script.js"></script>
     </body>
 </html>
