@@ -73,35 +73,40 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// Погодинний прогноз НЕ ПРАЦЮЄ
-
+// Погодинний прогноз ПРАЦЮЄ!
 async function updateHourlyForecast(city) {
   const apiKey = '5e0cf9bc3938bc361eb60c790555540f';
 
-  const geocodeResponse = await fetch(`https://api.openweathermap.org/geo/2.5/direct?q=${city}&limit=1&appid=${apiKey}`);
+  const geocodeResponse = await fetch(
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+  );
   const geoData = await geocodeResponse.json();
   const { lat, lon } = geoData[0];
 
-  const hourlyResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+  const hourlyResponse = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+  );
   const hourlyData = await hourlyResponse.json();
 
   const hourlyItems = document.querySelector('.hourly-items');
   hourlyItems.innerHTML = '';
 
-    for (let i =0; i < 5; i++) {
-      const hour = hourlyData.list[i];
-      const time = new Date(hour.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      const iconCode = hour.weather[0].icon;
-      const temp = Math.round(hour.main.temp) + '°';
-        const hourBlock = `
-        <div class="hour">
-          <p class="hour-time">${time}</p>
-          <img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" alt="weather icon" class="hour-icon">
-          <p class="hour-temp">${temp}</p>
-        </div>
-      `;
-      hourlyItems.innerHTML += hourBlock;
-    }
-  
+  for (let i = 0; i < 5; i++) {
+    const hour = hourlyData.list[i]; // крок — кожні 3 години
+    const time = new Date(hour.dt * 1000).toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    const iconCode = hour.weather[0].icon;
+    const temp = Math.round(hour.main.temp) + '°';
+    const hourBlock = `
+      <div class="hour">
+        <p class="hour-time">${time}</p>
+        <img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" alt="weather icon" class="hour-icon">
+        <p class="hour-temp">${temp}</p>
+      </div>
+    `;
+    hourlyItems.innerHTML += hourBlock;
+  }
 }
 
